@@ -107,6 +107,7 @@ def waitCheckPoint():
         nextMinTime = MMN * (now.minute / MMN + 2) % 60
         output.write('\r ++++++++++++   get checkpoint: cur:' + str(cur)
                      + " minus:" + str(minus)
+                     + " checkPointRate:" + str(checkPointRate)
                      + " CP:" + str(checkpoint)
                      + " ACT:" + str(action)
                      + " O:" + str(open)
