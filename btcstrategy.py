@@ -28,7 +28,7 @@ action = 'buy'
 order = False
 
 # 波动率
-checkPointRate = 0.001
+checkPointRate = 0.0005
 # 几分钟K线
 KType = '5min'
 # 几分钟K线
@@ -129,6 +129,7 @@ def waitCheckPoint():
         #        + " actionNum:" + str(actionNum)
         #        + " time:" + str(now.day) + " " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second)
         #        + " nextMinTime:" + str(nextMinTime))
+        sys.stdout.flush()
 
 
 def job():
@@ -147,7 +148,7 @@ def job():
         # sys.stdout.flush()
         # print "openPosition：", openPosition, " response... wait for:", nextMinTime, now.year, now.month, now.day, now.hour, now.minute, now.second
         if now.second <= 10 and now.minute == nextMinTime:
-            print "\n ----------  time to reaction"
+            print " ----------  time to reaction"
             kline = get_kline(pair, KType, '1')
             close = kline['data'][0]['close']
             if action == 'buy':
@@ -170,6 +171,7 @@ def job():
                     print ' 高卖低买失败', " openPosition：", openPosition, " closePosition:", close
 
             order = False
+            sys.stdout.flush()
         return
     else:
         waitCheckPoint()
