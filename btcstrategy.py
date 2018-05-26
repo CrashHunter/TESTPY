@@ -189,6 +189,7 @@ def job2():
 
 
 print('\n start')
+sys.stdout.flush()
 # 定义BlockingScheduler
 sched = BlockingScheduler()
 # sched = BackgroundScheduler()
