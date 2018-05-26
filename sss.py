@@ -46,9 +46,9 @@ output = sys.stdout
 def job():
     now = datetime.datetime.now()
 
-    print "\r Hello, Gay! ", now.second,
+    # print "\r Hello, Gay! ", now.second,
     # sys.stdout.flush()
-    # output.write("\r time:" + str(now.day) + " " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
+    output.write("\r time:" + str(now.day) + " " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
     # sys.stdout.flush()
 
 
