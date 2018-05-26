@@ -46,12 +46,12 @@ output = sys.stdout
 
 def sellAction(price):
     print ' *************  sellAction:' + price
-    send_order(value, '', pair, 'sell-limit', price)
+    # send_order(value, '', pair, 'sell-limit', price)
 
 
 def buyAciton(price):
     print ' *************  buyAction:' + price
-    send_order(value, '', pair, 'buy-limit', price)
+    # send_order(value, '', pair, 'buy-limit', price)
 
 
 def waitCheckPoint():
@@ -105,20 +105,20 @@ def waitCheckPoint():
     if minus >= checkpoint:
         order = True
         nextMinTime = MMN * (now.minute / MMN + 2) % 60
-        output.write('\r ++++++++++++   get checkpoint: cur:' + str(cur)
-                     + " minus:" + str(minus)
-                     + " checkPointRate:" + str(checkPointRate)
-                     + " CP:" + str(checkpoint)
-                     + " ACT:" + str(action)
-                     + " O:" + str(open)
-                     + " H:" + str(high)
-                     + " L:" + str(low)
-                     + " ACTNUM:" + str(actionNum)
-                     + " sRate:" + str(sucRate)
-                     + " tProfit:" + str(totalProfit)
-                     + " time:" + str(now.day) + " " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second)
-                     + " nextMinTime:" + str(nextMinTime))
-        sys.stdout.flush()
+        print(' ++++++++++++   get checkpoint: cur:' + str(cur)
+              + " minus:" + str(minus)
+              + " CP:" + str(checkpoint)
+              + " CPR:" + str(checkPointRate)
+              + " ACT:" + str(action)
+              + " O:" + str(open)
+              + " H:" + str(high)
+              + " L:" + str(low)
+              + " ACTNUM:" + str(actionNum)
+              + " sRate:" + str(sucRate)
+              + " tProfit:" + str(totalProfit)
+              + " time:" + str(now.day) + " " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second)
+              + " nextMinTime:" + str(nextMinTime))
+
         job2()
         # print ('\n ##############   get checkpoint' + 'minus:' + str(minus)
         #        + " checkpoint:" + str(checkpoint)
@@ -155,19 +155,19 @@ def job():
                     actionSuc += 1
                     totalProfit += (close - openPosition) * float(value) - 0.002 * close * float(
                         value) - 0.002 * openPosition * float(value)
-                    print "\n 平仓卖", " openPosition：", openPosition, " closePosition:", close
+                    print " 平仓卖", " openPosition：", openPosition, " closePosition:", close
                     sellAction(str(close))
                 else:
-                    print '\n 低买高卖失败', " openPosition：", openPosition, " closePosition:", close
+                    print ' 低买高卖失败', " openPosition：", openPosition, " closePosition:", close
             elif action == 'sell':
                 if cur > close:
                     actionSuc += 1
                     totalProfit += (openPosition - close) * float(value) - 0.002 * close * float(
                         value) - 0.002 * openPosition * float(value)
-                    print "\n 平仓买", " openPosition：", openPosition, " closePosition:", close
+                    print " 平仓买", " openPosition：", openPosition, " closePosition:", close
                     buyAciton(str(close))
                 else:
-                    print '\n 高卖低买失败', " openPosition：", openPosition, " closePosition:", close
+                    print ' 高卖低买失败', " openPosition：", openPosition, " closePosition:", close
 
             order = False
         return
