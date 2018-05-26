@@ -28,7 +28,7 @@ action = 'buy'
 order = False
 
 # 波动率
-checkPointRate = 0.002
+checkPointRate = 0.001
 # 几分钟K线
 KType = '5min'
 # 几分钟K线
@@ -38,7 +38,7 @@ nextMinTime = 0
 # 交易对
 pair = 'btcusdt'
 # 下单量
-value = '0.001'
+value = '0.0011'
 import sys
 
 output = sys.stdout
