@@ -45,12 +45,12 @@ output = sys.stdout
 
 
 def sellAction(price):
-    print '\n *************  sellAction:' + price
+    print ' *************  sellAction:' + price
     send_order(value, '', pair, 'sell-limit', price)
 
 
 def buyAciton(price):
-    print '\n *************  buyAction:' + price
+    print ' *************  buyAction:' + price
     send_order(value, '', pair, 'buy-limit', price)
 
 
