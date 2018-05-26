@@ -45,12 +45,12 @@ output = sys.stdout
 
 
 def sellAction(price):
-    print '\n --------------------sellAction:' + price
+    print '\n *************  sellAction:' + price
     send_order(value, '', pair, 'sell-limit', price)
 
 
 def buyAciton(price):
-    print '\n --------------------buyAction:' + price
+    print '\n *************  buyAction:' + price
     send_order(value, '', pair, 'buy-limit', price)
 
 
@@ -104,7 +104,6 @@ def waitCheckPoint():
     # sys.stdout.flush()
     if minus >= checkpoint:
         order = True
-        job2()
         nextMinTime = MMN * (now.minute / MMN + 2) % 60
         output.write('\r ++++++++++++   get checkpoint: cur:' + str(cur)
                      + " minus:" + str(minus)
@@ -119,6 +118,7 @@ def waitCheckPoint():
                      + " time:" + str(now.day) + " " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second)
                      + " nextMinTime:" + str(nextMinTime))
         sys.stdout.flush()
+        job2()
         # print ('\n ##############   get checkpoint' + 'minus:' + str(minus)
         #        + " checkpoint:" + str(checkpoint)
         #        + " action:" + str(action)
