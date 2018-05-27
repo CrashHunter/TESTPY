@@ -16,6 +16,7 @@
 
 import datetime
 import sys
+from time import timezone
 
 from apscheduler.schedulers.blocking import BlockingScheduler
 
@@ -75,3 +76,6 @@ sched.start()
 # #  Displays a section of the pad in the middle of the screen
 # pad.refresh( 0,0, 5,5, 20,75)
 #
+
+
+utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)
