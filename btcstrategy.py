@@ -46,12 +46,12 @@ output = sys.stdout
 
 def sellAction(price):
     print ' *************  sellAction:' + price
-    # send_order(value, '', pair, 'sell-limit', price)
+    send_order(value, '', pair, 'sell-limit', price)
 
 
 def buyAciton(price):
     print ' *************  buyAction:' + price
-    # send_order(value, '', pair, 'buy-limit', price)
+    send_order(value, '', pair, 'buy-limit', price)
 
 
 def waitCheckPoint():
