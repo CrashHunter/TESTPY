@@ -152,20 +152,22 @@ def job():
             kline = get_kline(pair, KType, '1')
             close = kline['data'][0]['close']
             if action == 'buy':
+                profit = (close - openPosition) * float(value) - 0.002 * close * float(
+                    value) - 0.002 * openPosition * float(value)
                 if cur < close:
                     actionSuc += 1
-                    totalProfit += (close - openPosition) * float(value) - 0.002 * close * float(
-                        value) - 0.002 * openPosition * float(value)
-                    print " 平仓卖", " openPosition：", openPosition, " closePosition:", close
+                    totalProfit += profit
+                    print " 平仓卖", " openPosition：", openPosition, " closePosition:", close, " profit:", profit
                     sellAction(str(close))
                 else:
                     print ' 低买高卖失败', " openPosition：", openPosition, " closePosition:", close
             elif action == 'sell':
+                profit = (openPosition - close) * float(value) - 0.002 * close * float(
+                    value) - 0.002 * openPosition * float(value)
                 if cur > close:
                     actionSuc += 1
-                    totalProfit += (openPosition - close) * float(value) - 0.002 * close * float(
-                        value) - 0.002 * openPosition * float(value)
-                    print " 平仓买", " openPosition：", openPosition, " closePosition:", close
+                    totalProfit += profit
+                    print " 平仓买", " openPosition：", openPosition, " closePosition:", close, " profit:", profit
                     buyAciton(str(close))
                 else:
                     print ' 高卖低买失败', " openPosition：", openPosition, " closePosition:", close
