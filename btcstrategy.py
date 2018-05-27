@@ -157,7 +157,7 @@ def job():
                 if cur < close:
                     actionSuc += 1
                     totalProfit += profit
-                    print " 平仓卖", " openPosition：", openPosition, " closePosition:", close, " profit:", profit
+                    print " 平仓卖", " openPosition：", openPosition, " closePosition:", close, " profit:", profit, " totalProfit:", totalProfit
                     sellAction(str(close))
                 else:
                     print ' 低买高卖失败', " openPosition：", openPosition, " closePosition:", close
@@ -167,7 +167,7 @@ def job():
                 if cur > close:
                     actionSuc += 1
                     totalProfit += profit
-                    print " 平仓买", " openPosition：", openPosition, " closePosition:", close, " profit:", profit
+                    print " 平仓买", " openPosition：", openPosition, " closePosition:", close, " profit:", profit, " totalProfit:", totalProfit
                     buyAciton(str(close))
                 else:
                     print ' 高卖低买失败', " openPosition：", openPosition, " closePosition:", close
